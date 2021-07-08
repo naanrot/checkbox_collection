@@ -40,17 +40,20 @@ class _CheckBoxListViewDefaultState extends State<CheckBoxListViewDefault> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
+        behavior: HitTestBehavior.translucent,
         onTap: () {
           _changeAndNotify(!_isChecked);
         },
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              child: widget.detailView,
-            ),
-            _getCheckBoxListTile()
-          ],
+        child: Container(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: widget.detailView,
+              ),
+              _getCheckBoxListTile()
+            ],
+          ),
         ),
       ),
     );

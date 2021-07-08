@@ -2,25 +2,26 @@ import 'package:checkbox_collection/src/checkbox_list_collection/checkbox_list_v
 import 'package:flutter/material.dart';
 
 class CheckBoxListCollection extends StatelessWidget {
-  final List<String> data;
+  final Widget Function(int) detailViewBuilder;
   final void Function(List<int>) checkedItems;
-  final List<int> checkedItemsList = [];
+  final List<int> _checkedItemsList = [];
+  final int itemCount;
 
   CheckBoxListCollection(
-      {required this.data, required this.checkedItems, Key? key})
+      {required this.detailViewBuilder, required this.itemCount,required this.checkedItems, Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: data.length,
+      itemCount: this.itemCount,
       itemBuilder: (context, index) {
         return CheckBoxListViewDefault(
           index: index,
-          detailView: Text(data[index]),
+          detailView: this.detailViewBuilder(index),
           onValueChange: (i, isChecked) {
-            isChecked ? checkedItemsList.add(i) : checkedItemsList.remove(i);
-            checkedItems(checkedItemsList);
+            isChecked ? _checkedItemsList.add(i) : _checkedItemsList.remove(i);
+            checkedItems(_checkedItemsList);
           },
         );
       },
