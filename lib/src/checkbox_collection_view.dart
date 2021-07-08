@@ -1,15 +1,14 @@
+import 'package:checkbox_collection/src/widget/checkbox_list_view.dart';
 import 'package:flutter/material.dart';
 
-class CheckBoxCollection extends StatefulWidget {
-  const CheckBoxCollection({Key? key}) : super(key: key);
+class CheckBoxListCollection extends StatelessWidget {
+  final List<String> data;
+  const CheckBoxListCollection({required this.data, Key? key}) : super(key: key);
 
-  @override
-  _CheckBoxCollectionState createState() => _CheckBoxCollectionState();
-}
-
-class _CheckBoxCollectionState extends State<CheckBoxCollection> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return CheckBoxListView(
+      data: data,
+    );
   }
 }
