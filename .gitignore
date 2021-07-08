@@ -16,7 +16,7 @@
 .idea/
 
 #custom ignore
-pubspec.yaml
+pubspec.lock
 .metadata
 
 # The .vscode folder contains launch configuration and tasks you configure in
