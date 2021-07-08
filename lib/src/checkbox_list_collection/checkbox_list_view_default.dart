@@ -26,7 +26,6 @@ class _CheckBoxListViewDefaultState extends State<CheckBoxListViewDefault> {
       title: Text(widget.title),
       value: _isChecked,
       onChanged: (bool? value) {
-        print("Value changed in checkbox list view onValue state $value ");
         widget.onValueChange(widget.index, value!);
         setState(() {
           _isChecked = !_isChecked;

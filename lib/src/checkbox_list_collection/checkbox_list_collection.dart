@@ -25,7 +25,6 @@ class _CheckBoxListCollectionState extends State<CheckBoxListCollection> {
           index: index,
           title: widget.data[index],
           onValueChange: (i, isChecked) {
-            print("changed in onItem $isChecked");
             isChecked ? checkedItems.add(i) : checkedItems.remove(i);
             widget.onItemsClicked(checkedItems);
           },
