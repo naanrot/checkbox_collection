@@ -17,7 +17,7 @@ class CheckBoxListCollection extends StatelessWidget {
       itemBuilder: (context, index) {
         return CheckBoxListViewDefault(
           index: index,
-          title: data[index],
+          detailView: Text(data[index]),
           onValueChange: (i, isChecked) {
             isChecked ? checkedItemsList.add(i) : checkedItemsList.remove(i);
             checkedItems(checkedItemsList);

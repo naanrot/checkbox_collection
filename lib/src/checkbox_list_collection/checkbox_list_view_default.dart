@@ -1,16 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CheckBoxListViewDefault extends StatefulWidget {
   final int index;
-  final String title;
   final void Function(int, bool) onValueChange;
+  final Widget detailView;
 
-  const CheckBoxListViewDefault(
-      {Key? key,
-      required this.index,
-      required this.title,
-      required this.onValueChange})
-      : super(key: key);
+  CheckBoxListViewDefault({Key? key,
+    required this.index,
+    required this.detailView,
+    required this.onValueChange}) : super(key: key);
 
   @override
   _CheckBoxListViewDefaultState createState() =>
@@ -20,10 +19,8 @@ class CheckBoxListViewDefault extends StatefulWidget {
 class _CheckBoxListViewDefaultState extends State<CheckBoxListViewDefault> {
   var _isChecked = false;
 
-  @override
-  Widget build(BuildContext context) {
-    return CheckboxListTile(
-      title: Text(widget.title),
+  Widget _getCheckBoxListTile() {
+    return Checkbox(
       value: _isChecked,
       onChanged: (bool? value) {
         widget.onValueChange(widget.index, value!);
@@ -31,6 +28,22 @@ class _CheckBoxListViewDefaultState extends State<CheckBoxListViewDefault> {
           _isChecked = !_isChecked;
         });
       },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: widget.detailView,
+          ),
+          _getCheckBoxListTile()
+        ],
+      ),
     );
   }
 }
