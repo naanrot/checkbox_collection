@@ -1,3 +1,4 @@
 library checkbox_collection;
 
-export 'package:checkbox_collection/src/checkbox_collection_view.dart';
+export 'src/checkbox_list_collection/checkbox_list_collection.dart';
+export 'src/checkbox_grid_collection/checkbox_grid_collection.dart';
