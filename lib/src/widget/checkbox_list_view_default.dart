@@ -16,16 +16,12 @@ class _CheckBoxListViewDefaultState extends State<CheckBoxListViewDefault> {
 
   @override
   Widget build(BuildContext context) {
-    return getDefault(widget.title, _isChecked, (bool? value) {
-      _isChecked = !_isChecked;
-    });
+    return CheckboxListTile(
+      title: Text(widget.title),
+      value: _isChecked,
+      onChanged: (bool? value) {
+        _isChecked = !_isChecked;
+      },
+    );
   }
-}
-
-Widget getDefault(title, value, void Function(bool?) onChanged) {
-  return CheckboxListTile(
-    title: Text(title),
-    value: value,
-    onChanged: onChanged,
-  );
 }

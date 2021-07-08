@@ -1,7 +1,6 @@
 name: checkbox_collection
 description: A package to create list/grid view of checkboxes
 version: 0.0.1
-homepage:
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

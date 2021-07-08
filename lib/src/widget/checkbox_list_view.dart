@@ -13,6 +13,7 @@ class _CheckBoxListViewState extends State<CheckBoxListView> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      itemCount: widget.data.length,
       itemBuilder: (context, index) {
         return CheckBoxListViewDefault(
           title: widget.data[index],
