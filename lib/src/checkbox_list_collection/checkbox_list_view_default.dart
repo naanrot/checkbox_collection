@@ -37,12 +37,12 @@ class _CheckBoxListViewDefaultState extends State<CheckBoxListViewDefault> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _changeAndNotify(!_isChecked);
-      },
-      child: Container(
-        padding: EdgeInsets.all(8),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GestureDetector(
+        onTap: () {
+          _changeAndNotify(!_isChecked);
+        },
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
