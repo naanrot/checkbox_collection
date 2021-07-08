@@ -1,0 +1,2 @@
+library checkbox_collection;
+
