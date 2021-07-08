@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 class CheckBoxListViewDefault extends StatefulWidget {
   final int index;
   final String title;
-  final void Function(int, bool)? onValueChange;
+  final void Function(int, bool) onValueChange;
 
-  const CheckBoxListViewDefault({required this.index ,required this.title, void Function(int, bool)? onValueChange,Key? key})
-      : this.onValueChange = onValueChange,super(key: key);
+  const CheckBoxListViewDefault(
+      {Key? key,
+      required this.index,
+      required this.title,
+      required this.onValueChange})
+      : super(key: key);
 
   @override
   _CheckBoxListViewDefaultState createState() =>
@@ -22,9 +26,8 @@ class _CheckBoxListViewDefaultState extends State<CheckBoxListViewDefault> {
       title: Text(widget.title),
       value: _isChecked,
       onChanged: (bool? value) {
-        if (widget.onValueChange != null) {
-          widget.onValueChange!(widget.index, _isChecked);
-        }
+        print("Value changed in checkbox list view onValue state $value ");
+        widget.onValueChange(widget.index, value!);
         setState(() {
           _isChecked = !_isChecked;
         });
