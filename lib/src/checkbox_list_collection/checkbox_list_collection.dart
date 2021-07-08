@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class CheckBoxListCollection extends StatelessWidget {
   final List<String> data;
-  final void Function(List<int>) onItemsClicked;
-  final List<int> checkedItems = [];
+  final void Function(List<int>) checkedItems;
+  final List<int> checkedItemsList = [];
 
   CheckBoxListCollection(
-      {required this.data, required this.onItemsClicked, Key? key})
+      {required this.data, required this.checkedItems, Key? key})
       : super(key: key);
 
   @override
@@ -19,8 +19,8 @@ class CheckBoxListCollection extends StatelessWidget {
           index: index,
           title: data[index],
           onValueChange: (i, isChecked) {
-            isChecked ? checkedItems.add(i) : checkedItems.remove(i);
-            onItemsClicked(checkedItems);
+            isChecked ? checkedItemsList.add(i) : checkedItemsList.remove(i);
+            checkedItems(checkedItemsList);
           },
         );
       },
