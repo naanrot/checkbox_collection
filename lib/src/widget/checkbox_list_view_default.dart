@@ -20,7 +20,9 @@ class _CheckBoxListViewDefaultState extends State<CheckBoxListViewDefault> {
       title: Text(widget.title),
       value: _isChecked,
       onChanged: (bool? value) {
-        _isChecked = !_isChecked;
+        setState(() {
+          _isChecked = !_isChecked;
+        });
       },
     );
   }
